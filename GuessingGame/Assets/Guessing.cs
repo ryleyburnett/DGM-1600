@@ -5,9 +5,11 @@ using UnityEngine;
 public class Guessing : MonoBehaviour 
 {
 
-	int max = 100;
-	int min = 1;
-	int guess = 50;
+	private int max = 100;
+	private int min = 1;
+	private int guess;
+
+	public int counter = 6;
 
 
 	// Use this for initialization
@@ -15,7 +17,7 @@ public class Guessing : MonoBehaviour
 	{
 		
 
-
+		guess = Random.Range(min, max);
 
 		print ("Welcome to Number Guesser");
 		print ("Pick a Number in Your Head");
@@ -25,9 +27,8 @@ public class Guessing : MonoBehaviour
 
 		max = max + 1;	
 
-		print ("Is the Number Higher or Lower Than " + guess);
 		print ("Up Arrow for Higher, Down Arrow for Lower, & Enter for Equal");
-
+		print ("Is the Number Higher or Lower Than " + guess);
 
 	}
 
@@ -37,27 +38,70 @@ public class Guessing : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		if (counter == -1) 
+		{
+			if (Input.GetKeyDown (KeyCode.DownArrow) || Input.GetKeyDown (KeyCode.DownArrow));{
+				print ("You Win, I Lose...");
+			
+			}
+		}
 
-
-		if (Input.GetKeyDown(KeyCode.UpArrow)) 
+		else if (Input.GetKeyDown(KeyCode.UpArrow)) 
 		{
 			min = guess;
-			guess = (max + min) / 2;				
+			guess = (max + min) / 2;	
+			counter--;
 			print ("Is the Number Higher or Lower Than " + guess);
 
+
+
 		}
-		if (Input.GetKeyDown (KeyCode.DownArrow)) 
+
+		else if (Input.GetKeyDown (KeyCode.DownArrow)) 
 		{
 			max = guess;
-			guess = (max + min) / 2;				
+			guess = (max + min) / 2;
+			counter--;
 			print ("Is the Number Higher or Lower Than " + guess);
 
 		}
+	
 		if (Input.GetKeyDown (KeyCode.Return))
 		{
-			print ("Your Number is " + guess);
+			print ("Congrats, The Computer Has Gained Intelligence and is Now Smarter Than You. It Has Determined That Your Number is " + guess);
 
 		}
+
+		// When counter equals zero then player wins
+		if (counter == 0) 
+		{
+			counter--;
+			
+		
+			//if (Input.GetKeyDown (KeyCode.Return))
+			//{
+				//print ("Congrats, The Computer Has Gained Intelligence and is Now Smarter Than You. It Has Determined That Your Number is " + guess);
+
+			//}
+			//if (Input.GetKeyDown (KeyCode.DownArrow) || Input.GetKeyDown (KeyCode.DownArrow));
+				
+			//{
+
+					//counter--;
+					//print ("I Lose, You Win...");
+
+				//}
+
+			
+
+
+
+		}
+
+
+
+
+
 
 
 
