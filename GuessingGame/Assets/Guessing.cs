@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Guessing : MonoBehaviour 
 {
+
+	public Text textbox;
+
+
+
 
 	private int max = 100;
 	private int min = 1;
@@ -15,9 +22,22 @@ public class Guessing : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		
 
 		guess = Random.Range(min, max);
+
+
+		textbox.text = "Welcome to Number Guesser"
+		+ "\nPick a Number in Your Head"
+		+ "\n\nThe Highest Number You Can Pick is " + max
+		+ "\nThe Lowest Number You Can Pick is " + min
+		+ "\nUp Arrow for Higher, Down Arrow for Lower, & Enter for Equal"
+		+ "\nIs the Number Higher or Lower Than " + guess;
+
+
+
+
+
+
 
 		print ("Welcome to Number Guesser");
 		print ("Pick a Number in Your Head");
