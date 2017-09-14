@@ -36,19 +36,8 @@ public class Guessing : MonoBehaviour
 
 
 
-
-
-
-		print ("Welcome to Number Guesser");
-		print ("Pick a Number in Your Head");
-
-		print ("The Highest Number You Can Pick is " + max);
-		print ("The Lowest Number You Can Pick is " + min);
-
 		max = max + 1;	
 
-		print ("Up Arrow for Higher, Down Arrow for Lower, & Enter for Equal");
-		print ("Is the Number Higher or Lower Than " + guess);
 
 	}
 
@@ -71,7 +60,7 @@ public class Guessing : MonoBehaviour
 			min = guess;
 			guess = (max + min) / 2;	
 			counter--;
-			print ("Is the Number Higher or Lower Than " + guess);
+			textbox.text = ("Is the Number Higher or Lower Than " + guess);
 
 
 
@@ -82,13 +71,13 @@ public class Guessing : MonoBehaviour
 			max = guess;
 			guess = (max + min) / 2;
 			counter--;
-			print ("Is the Number Higher or Lower Than " + guess);
+			textbox.text = ("Is the Number Higher or Lower Than " + guess);
 
 		}
 	
 		if (Input.GetKeyDown (KeyCode.Return))
 		{
-			print ("Congrats, The Computer Has Gained Intelligence and is Now Smarter Than You. It Has Determined That Your Number is " + guess);
+			textbox.text = ("Congrats, The Computer Has Gained Intelligence and is Now Smarter Than You. It Has Determined That Your Number is " + guess);
 
 		}
 
