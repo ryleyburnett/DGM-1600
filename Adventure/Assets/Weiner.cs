@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class Weiner : MonoBehaviour 
 {
 	public Text textbox;
-	public enum States {start, injured, wearing, getout01, stranger, checkman01, disregard, wake, climb01, swim01, };
+	public enum States {start, injured, wearing, getout01, stranger, stranger01, checkman01, disregard, wake, climb01, swim01, nametext, deadman, eatenalive, communication, };
 	public States myCurrentState;
+
+	public bool commdev = false;
 
 
 	// Use this for initialization
@@ -34,7 +36,10 @@ public class Weiner : MonoBehaviour
 		if (myCurrentState == States.wake) { State_wake ();}
 		if (myCurrentState == States.climb01) { State_climb01 ();}
 		if (myCurrentState == States.swim01) { State_swim01 ();}
-
+		if (myCurrentState == States.nametext) { State_nametext ();}
+		if (myCurrentState == States.deadman) { State_deadman ();}
+		if (myCurrentState == States.eatenalive) { State_eatenalive ();}
+		if (myCurrentState == States.stranger01) { State_stranger01 ();}
 
 	}
 
@@ -50,13 +55,13 @@ public class Weiner : MonoBehaviour
 			"\n       2. SEE WHAT YOU'RE WEARING." +
 			"\n       3. LOOK FOR A WAY OUT.";
 
-		if (Input.GetKeyDown (KeyCode.Keypad1)) {
+		if (Input.GetKeyUp (KeyCode.Keypad1)) {
 			myCurrentState = States.injured;
 		} 
-		else if (Input.GetKeyDown (KeyCode.Keypad2)) {
+		else if (Input.GetKeyUp (KeyCode.Keypad2)) {
 			myCurrentState = States.wearing;
 		}
-		else if (Input.GetKeyDown (KeyCode.Keypad3)) {
+		else if (Input.GetKeyUp (KeyCode.Keypad3)) {
 			myCurrentState = States.getout01;
 		}
 			
@@ -74,7 +79,7 @@ public class Weiner : MonoBehaviour
 			"\n " +
 			"\n ";
 
-		if (Input.GetKeyDown (KeyCode.Keypad0)) {
+		if (Input.GetKeyUp (KeyCode.Keypad0)) {
 			myCurrentState = States.start;
 		} 
 
@@ -87,13 +92,14 @@ public class Weiner : MonoBehaviour
 			"\nHOWEVER IT'S SOMEWHAT TORN ON THE SHOULDER. " +
 			"\n " +
 			"\nTHERE'S A COMMUNICATION DEVICE ON YOUR CHEST." +
-			"\n " +
+			"\nYOU MIGHT BE ABLE TO USE IT LATER..." +
 			"\n " +
 			"\n       0. GO BACK AND DECIDE WHAT TO DO" +
 			"\n " +
 			"\n ";
 
-		if (Input.GetKeyDown (KeyCode.Keypad0)) {
+		if (Input.GetKeyUp (KeyCode.Keypad0)) {
+			commdev = true;
 			myCurrentState = States.start;
 		} 
 
@@ -105,7 +111,7 @@ public class Weiner : MonoBehaviour
 	{
 		textbox.text = "THERE SEEMS TO BE ONLY TWO WAYS OUT:" +
 			"\nBACK UP THROUGH THE ESOPHAGUS," +
-			"\nOR DOWN A DEEP HOLE UNDERWATER, IN THE CENTER OF THE STOMACH." +
+			"\nOR DEEP DOWN A HOLE UNDERWATER, IN THE CENTER OF THE STOMACH." +
 			"\n " +
 			"\nYOU HEAR A NOISE COMING FROM ABOVE YOU....." +
 			"\n " +
@@ -113,16 +119,22 @@ public class Weiner : MonoBehaviour
 			"\n " +
 			"\n "; 
 
-		if (Input.GetKeyDown (KeyCode.KeypadEnter)) {
-			myCurrentState = States.stranger;
-		} 
+		if (Input.GetKeyUp (KeyCode.KeypadEnter))  {
+				myCurrentState = States.stranger;
+			}
+		 
 
 	}
 
 	void State_stranger()
 	{
+		if (commdev == true) {
+			myCurrentState = States.stranger01;
+		}
+
+
 		textbox.text = "SUDDENLY, A MAN FALLS FROM THE DARKNESS ABOVE" +
-			"\n AND SPLASHES INTO THE STOMACH FLUID WITH YOU." +
+		"\nAND SPLASHES INTO THE STOMACH FLUID WITH YOU." +
 		"\n " +
 		"\n " +
 		"\n " +
@@ -131,22 +143,61 @@ public class Weiner : MonoBehaviour
 		"\n          INTO YOUR ACIDIC HOT TUB" +
 		"\n          AND INSTEAD, ATTEMPT TO CLIMB OR SWIM OUT."; 
 
-		if (Input.GetKeyDown (KeyCode.Keypad1)) {
+		if (Input.GetKeyUp (KeyCode.Keypad1)) {
 			myCurrentState = States.checkman01;
-		} else if (Input.GetKeyDown (KeyCode.Keypad2)) {
+		} else if (Input.GetKeyUp (KeyCode.Keypad2)) {
 			myCurrentState = States.disregard;
-		}
+		} 
+
+
 	}
+
+	void State_stranger01()
+	{
+		
+			textbox.text = "SUDDENLY, A MAN FALLS FROM THE DARKNESS ABOVE" +
+			"\nAND SPLASHES INTO THE STOMACH FLUID WITH YOU." +
+			"\n " +
+			"\n " +
+			"\n       1. SEE IF HE'S OKAY." +
+			"\n       2. DISREGARD THAT A MAN JUST FELL " +
+			"\n          INTO YOUR ACIDIC HOT TUB" +
+			"\n          AND INSTEAD, ATTEMPT TO CLIMB OR SWIM OUT." +
+			"\n       3. ATTEMPT TO USE YOUR COMMUNICATION DEVICE.";
+		
+
+			if (Input.GetKeyUp (KeyCode.Keypad1)) {
+				myCurrentState = States.checkman01;
+			} else if (Input.GetKeyUp (KeyCode.Keypad2)) {
+				myCurrentState = States.disregard;
+			} else if (Input.GetKeyUp (KeyCode.Keypad3)) {
+				myCurrentState = States.communication;
+			}
+
+	}
+
 
 	void State_checkman01()
 	{
-		textbox.text = "YOU FLIP THE MAN OVER, HE'S KNOCKED OUT COLD." +
-		"\n " +
-		"\n        Enter. WAKE HIM UP.";
+		//if (Random.value < 0.05) {
+			//myCurrentState = States.deadman;
+		//} else if (Random.value > 0.05) {
 
-		if (Input.GetKeyDown (KeyCode.KeypadEnter)) {
+			textbox.text = "YOU FLIP THE MAN OVER, HE'S KNOCKED OUT COLD." +
+			"\n" +
+			"\n" +
+			"\n" +
+			"\n" +
+			"\n " +
+			"\n        Enter. WAKE HIM UP." +
+			"\n" +
+			"\n";
+		
+
+		if (Input.GetKeyUp (KeyCode.KeypadEnter)) {
 			myCurrentState = States.wake;
 		} 
+
 
 	}
 
@@ -158,18 +209,18 @@ public class Weiner : MonoBehaviour
 			"\nYOU CAN EITHER ATTEMPT TO CLIMB UP THROUGH THE ESOPHAGUS" +
 			"\nOR SWIM THROUGH THE DEEP HOLE INTO THE INTESTINES." +
 			"\n" +
-			"\n        1. CLIMB" +
-			"\n        2. SWIM" +
-			"\n        3. SEE IF THE MAN IS DEAD";
+			"\n        4. CLIMB" +
+			"\n        5. SWIM" +
+			"\n        6. SEE IF THE MAN IS DEAD";
 
-		if (Input.GetKeyDown (KeyCode.Keypad1)) {
+		if (Input.GetKeyUp (KeyCode.Keypad4)) {
 			myCurrentState = States.climb01;
 		} 
-		else if (Input.GetKey (KeyCode.Keypad2)) {
+		else if (Input.GetKeyUp (KeyCode.Keypad5)) {
 			myCurrentState = States.swim01;
 		} 
-		else if (Input.GetKeyDown (KeyCode.Keypad3)) {
-			myCurrentState = States.checkman01;
+		else if (Input.GetKeyUp (KeyCode.Keypad6)) {
+			myCurrentState = States.deadman;
 		} 
 	}
 
@@ -185,7 +236,7 @@ public class Weiner : MonoBehaviour
 		"\n" +
 		"\n";
 
-		if (Input.GetKeyDown (KeyCode.Keypad0)) {
+		if (Input.GetKeyUp (KeyCode.Keypad0)) {
 			myCurrentState = States.disregard;
 		} 
 	}
@@ -202,7 +253,7 @@ public class Weiner : MonoBehaviour
 		"\n" +
 		"\n";
 
-		if (Input.GetKeyDown (KeyCode.Keypad0)) {
+		if (Input.GetKeyUp (KeyCode.Keypad0)) {
 			myCurrentState = States.disregard;
 		} 
 
@@ -212,19 +263,76 @@ public class Weiner : MonoBehaviour
 	void State_wake()
 	{
 		textbox.text = "THE MAN WAKES UP WITH A BLOOD-CURDLING SCREAM" +
-			"\nHE IS HYPERVENTALATING BUT SOON CALMS DOWN." +
-			"\n" +
-			"\n" +
-			"\n" +
-			"\n" +
-			"\nHE ASKS YOUR NAME..." +
-			"\n" +
-			"\n";
+		"\nHE IS HYPERVENTALATING BUT SOON CALMS DOWN." +
+		"\n" +
+		"\n" +
+		"\nHE ASKS YOUR NAME..." +
+		"\n" +
+		"\n       0. TYPE NAME" +
+		"\n" +
+		"\n";
+
+		if (Input.GetKeyUp (KeyCode.Keypad0)) {
+			myCurrentState = States.nametext;
+		}
+	}
+			
+	void State_nametext()
+	{
+		textbox.text = "START TYPING...";
+
+
 	}
 
+	void State_deadman()
+	{
+		textbox.text = "THE MAN IS BLEEDING OUT" +
+		"\n" +
+		"\nHIS BLOOD ATTRACTS WHITE, FLESH-EATING WORMS..." +
+		"\nTHEY SWIM OVER & STRIP HIM OF ALL SKIN AND MEAT..." +
+		"\nONLY HIS SKELETON IS LEFT." +
+		"\n" +
+		"\n       Enter. NEXT" +
+		"\n" +
+		"\n";
+
+		if (Input.GetKeyUp (KeyCode.KeypadEnter)) {
+			myCurrentState = States.eatenalive;
+		}
+
+	}
+
+	void State_eatenalive()
+	{
+		textbox.text = "THE  FLESH-EATING WORMS SWIM INTO THE TORN SLEEVE IN YOUR SUIT. " +
+			"\nYOU ARE EATEN ALIVE." +
+			"\n" +
+			"\nYOU LOSE." +
+			"\n" +
+			"\nPLAY AGAIN?" +
+			"\n" +
+			"\n       1. YES" +
+			"\n       2. NO";
 
 
 
+	}
+
+	void State_communication()
+	{
+		textbox.text = "YOU HEAR A MAN'S VOICE..." +
+			"\nHE'S ASKING IF THERE ARE ANY SURVIVORS." +
+			"\nTHE BUTTON ENABLING YOU TO TALK BACK IS BUSTED..." +
+			"\n" +
+			"\nTHERE'S HOPE..." +
+			"\n" +
+			"\n       Enter. Next" +
+			"\n" +
+			"\n";
+
+
+
+	}
 
 
 
