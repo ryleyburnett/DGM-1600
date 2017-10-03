@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Weiner : MonoBehaviour 
 {
 	public Text textbox;
-	public enum States {start, injured, wearing, getout01, stranger, stranger01, checkman01, disregard, wake, climb01, swim01, nametext, deadman, eatenalive, communication, };
+	public enum States {start, injured, wearing, getout01, stranger, stranger01, checkman01, disregard, wake, climb01, 
+		swim01, nametext, deadman, eatenalive, communication, ter, david, shareair, steal, swim02, shareair01, patch, };
 	public States myCurrentState;
 
 	public bool commdev = false;
@@ -40,6 +41,14 @@ public class Weiner : MonoBehaviour
 		if (myCurrentState == States.deadman) { State_deadman ();}
 		if (myCurrentState == States.eatenalive) { State_eatenalive ();}
 		if (myCurrentState == States.stranger01) { State_stranger01 ();}
+		if (myCurrentState == States.communication) { State_communication ();}
+		if (myCurrentState == States.ter) { State_ter ();}
+		if (myCurrentState == States.david) { State_david ();}
+		if (myCurrentState == States.shareair) { State_shareair ();}
+		if (myCurrentState == States.steal) { State_steal ();}
+		if (myCurrentState == States.shareair01) { State_shareair01 ();}
+		if (myCurrentState == States.patch) { State_patch ();}
+		if (myCurrentState == States.swim02) { State_swim02 ();}
 
 	}
 
@@ -129,25 +138,36 @@ public class Weiner : MonoBehaviour
 	void State_stranger()
 	{
 		if (commdev == true) {
-			myCurrentState = States.stranger01;
+			textbox.text = "SUDDENLY, A MAN FALLS FROM THE DARKNESS ABOVE" +
+			"\nAND SPLASHES INTO THE STOMACH FLUID WITH YOU." +
+			"\n " +
+			"\n " +
+			"\n       1. SEE IF HE'S OKAY." +
+			"\n       2. DISREGARD THAT A MAN JUST FELL " +
+			"\n          INTO YOUR ACIDIC HOT TUB" +
+			"\n          AND INSTEAD, ATTEMPT TO CLIMB OR SWIM OUT." +
+			"\n       3. ATTEMPT TO USE YOUR COMMUNICATION DEVICE.";
+		} else 
+		{
+			textbox.text = "SUDDENLY, A MAN FALLS FROM THE DARKNESS ABOVE" +
+			"\nAND SPLASHES INTO THE STOMACH FLUID WITH YOU." +
+			"\n " +
+			"\n " +
+			"\n " +
+			"\n       1. SEE IF HE'S OKAY." +
+			"\n       2. DISREGARD THAT A MAN JUST FELL " +
+			"\n          INTO YOUR ACIDIC HOT TUB" +
+			"\n          AND INSTEAD, ATTEMPT TO CLIMB OR SWIM OUT."; 
+
 		}
-
-
-		textbox.text = "SUDDENLY, A MAN FALLS FROM THE DARKNESS ABOVE" +
-		"\nAND SPLASHES INTO THE STOMACH FLUID WITH YOU." +
-		"\n " +
-		"\n " +
-		"\n " +
-		"\n       1. SEE IF HE'S OKAY." +
-		"\n       2. DISREGARD THAT A MAN JUST FELL " +
-		"\n          INTO YOUR ACIDIC HOT TUB" +
-		"\n          AND INSTEAD, ATTEMPT TO CLIMB OR SWIM OUT."; 
 
 		if (Input.GetKeyUp (KeyCode.Keypad1)) {
 			myCurrentState = States.checkman01;
 		} else if (Input.GetKeyUp (KeyCode.Keypad2)) {
 			myCurrentState = States.disregard;
-		} 
+		} else if (Input.GetKeyUp (KeyCode.Keypad3)) {
+			myCurrentState = States.communication;
+		}
 
 
 	}
@@ -266,9 +286,9 @@ public class Weiner : MonoBehaviour
 		"\nHE IS HYPERVENTALATING BUT SOON CALMS DOWN." +
 		"\n" +
 		"\n" +
-		"\nHE ASKS YOUR NAME..." +
+		"\nYOU NOTICE THAT HE HIS SUIT ISN'T DAMAGED" +
 		"\n" +
-		"\n       0. TYPE NAME" +
+		"\n       0. ASK WHAT'S GOING ON." +
 		"\n" +
 		"\n";
 
@@ -279,8 +299,21 @@ public class Weiner : MonoBehaviour
 			
 	void State_nametext()
 	{
-		textbox.text = "START TYPING...";
+		textbox.text = "THE MAN SAYS HIS NAME IS DAVID." +
+			"\nHE WAS A MEMBER OF A MINING CREW ON A NEWLY DISCOVERED MOON. " +
+			"\n" +
+			"\nTHEY WERE MINING DEEP IN A CAVE, IN SEARCH OF A RARE FUEL." +
+			"\nHE REMEMBERS HEARING A RUMBLE AND SUDDENLY HE APPEARED HERE." +
+			"\n" +
+			"\n       Enter. NEXT" +
+			"\n" +
+			"\n";
+		if (Input.GetKeyUp (KeyCode.KeypadEnter)) {
+			myCurrentState = States.ter;
+		}
 
+			
+		
 
 	}
 
@@ -314,28 +347,149 @@ public class Weiner : MonoBehaviour
 			"\n       1. YES" +
 			"\n       2. NO";
 
-
+		if (Input.GetKeyUp (KeyCode.Keypad1)) {
+			myCurrentState = States.start;
+		} else if (Input.GetKeyUp (KeyCode.Keypad2)) {
+			Application.Quit ();
+		}
 
 	}
 
 	void State_communication()
 	{
-		textbox.text = "YOU HEAR A MAN'S VOICE..." +
-			"\nHE'S ASKING IF THERE ARE ANY SURVIVORS." +
-			"\nTHE BUTTON ENABLING YOU TO TALK BACK IS BUSTED..." +
-			"\n" +
-			"\nTHERE'S HOPE..." +
-			"\n" +
-			"\n       Enter. Next" +
-			"\n" +
-			"\n";
+		textbox.text = "YOU HEAR A MAN'S VOICE COMING THROUGH..." +
+		"\nHE'S ASKING IF THERE ARE ANY SURVIVORS." +
+		"\nTHE BUTTON ENABLING YOU TO TALK BACK IS BUSTED..." +
+		"\n" +
+		"\nTHERE'S STILL HOPE..." +
+		"\n" +
+		"\n       Enter. Next" +
+		"\n" +
+		"\n";
+		commdev = false;
 
-
+		if (Input.GetKeyUp (KeyCode.KeypadEnter)) {
+			myCurrentState = States.stranger;
+		}
 
 	}
 
+																						void State_ter()
+	{
+		textbox.text = "DAVID SAYS THAT YOU NEED TO FIND A WAY OUT" +
+			"\n'I HAVE AN IDEA, WE CAN TRY...'" +
+			"\n[YOU STOP LISTENING BECAUSE YOU'RE A TERRIBLE PERSON.]" +
+			"\nYOU NOTICE THAT HE HAS A FULL AIR TANK" +
+			"\nHE ALSO HAS A PLASMA BLASTER ON HIS BELT..." +
+			"\n" +
+			"\n   1. GO WITH DAVID'S IDEA." +
+			"\n   2. SEE IF THERE'S ANY WAY TO SHARE AIR." +
+			"\n   3. TRY TO STEAL HIS BLASTER.";
+	
+		if (Input.GetKeyUp (KeyCode.Keypad1)) {
+			myCurrentState = States.david;
+		} else if (Input.GetKeyUp (KeyCode.Keypad2)) {
+			myCurrentState = States.shareair;
+		} else if (Input.GetKeyUp (KeyCode.Keypad3)) {
+			myCurrentState = States.steal;
+		}
+	
+	}
+
+	void State_david()
+	{
+		textbox.text = "'WELL, LETS TRY TO SWIM THROUGH THAT HOLE." +
+			"\n" +
+			"\n" +
+			"\n" +
+			"\n" +
+			"\n" +
+			"\n   4. SAY, 'MY SUIT HAS A TEAR, MY AIR SUPPLY IS RUNNING OUT.'" +
+			"\n   5. TRY TO SWIM WITH DAVID" +
+			"\n";
+		if (Input.GetKeyUp (KeyCode.Keypad4)) {
+			myCurrentState = States.patch;
+		} else if (Input.GetKeyUp (KeyCode.Keypad5)) {
+			myCurrentState = States.swim02;
+		}
+	}
+
+	void State_patch()
+	{
 
 
+	}
+	void State_swim02()
+	{
+		textbox.text = "YOU TRY TO SWIM BUT SINK INSTEAD." +
+			"\nYOUR SUIT FILLS. YOU ARE DRUG DOWN." +
+			"\nYOU BREATH IN BILE. YOUR LUNGS DISSOLVE." +
+			"\n" +
+			"\nYOU LOSE. PLAY AGAIN?" +
+			"\n" +
+			"\n   Enter. YES" +
+			"\n   0. NO" +
+			"\n";
+		if (Input.GetKeyUp (KeyCode.KeypadEnter)) {
+			myCurrentState = States.start;
+		} else if (Input.GetKeyUp (KeyCode.Keypad0)) {
+			Application.Quit ();
+		}
+	}
 
+	void State_shareair()
+	{
+		textbox.text = "'THE VALVES WERE DESIGNED TO ONLY LET AIR INTO" +
+			"\nONE SUIT. IF WE TRIED TO SHARE AIR, WE WOULD BOTH DIE.'" +
+			"\n" +
+			"\n" +
+			"\n" +
+			"\n" +
+			"\n   4. GO BACK" +
+			"\n   5. TRY TO SHARE AIR." +
+			"\n";
+		if (Input.GetKeyUp (KeyCode.Keypad4)) {
+			myCurrentState = States.ter;
+		} else if (Input.GetKeyUp (KeyCode.Keypad5)) {
+			myCurrentState = States.shareair01;
+		}
+	}
+
+	void State_steal()
+	{
+		textbox.text = "YOU GO TO STEAL HIS BLASTER." +
+			"\nHE NOTICES AND SHOOTS YOU DEAD." +
+			"\n" +
+			"\n" +
+			"\nYOU LOSE. PLAY AGAIN?" +
+			"\n" +
+			"\n   Enter. YES" +
+			"\n   0. NO" +
+			"\n";
+		if (Input.GetKeyUp (KeyCode.KeypadEnter)) {
+			myCurrentState = States.start;
+		} else if (Input.GetKeyUp (KeyCode.Keypad0)) {
+			Application.Quit ();
+		}
+
+	}
+
+	void State_shareair01()
+	{
+		textbox.text = "YOU TRY TO SHARE AIR." +
+			"\nTHIS DEPRESSURIZES BOTH SUITS INSTANTLY." +
+			"\n" +
+			"\n" +
+			"\nYOU LOSE. PLAY AGAIN?" +
+			"\n" +
+			"\n   Enter. YES" +
+			"\n   0. NO" +
+			"\n";
+		if (Input.GetKeyUp (KeyCode.KeypadEnter)) {
+			myCurrentState = States.start;
+		} else if (Input.GetKeyUp (KeyCode.Keypad0)) {
+			Application.Quit ();
+		}
+	}
 }
 
