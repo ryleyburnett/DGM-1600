@@ -24,8 +24,8 @@ public class health : MonoBehaviour
 		//if health is < 0 destroy brick
 
 		if (myHealth <= 0) {
-			LevelManager.brickCount--;
-			levelManager.CheckBrickCount ();
+			//LevelManager.brickCount--;
+			//levelManager.CheckBrickCount ();
 			Destroy (this.gameObject);
 		}
 
