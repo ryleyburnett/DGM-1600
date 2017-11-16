@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\LaserScript.cs" />
      <Compile Include="Assets\Scripts\LevelManager.cs" />
      <Compile Include="Assets\Scripts\MeteorScript.cs" />
+     <Compile Include="Assets\Scripts\PowerUpScript.cs" />
      <Compile Include="Assets\Scripts\ShipScript.cs" />
      <None Include="Assets\SpaceShooterRedux\license.txt" />
      <None Include="Assets\SpaceShooterRedux\Spritesheet\sheet.xml" />

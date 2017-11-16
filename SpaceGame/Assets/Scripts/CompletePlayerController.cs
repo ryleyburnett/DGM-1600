@@ -6,6 +6,7 @@ public class CompletePlayerController : MonoBehaviour {
 	public float speed;             //Floating point variable to store the player's movement speed.
 
 	private Rigidbody2D rb2d;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
+	public ParticleSystem Particles;
 
 	// Use this for initialization
 	void Start()
@@ -15,8 +16,19 @@ public class CompletePlayerController : MonoBehaviour {
 	}
 
 	//FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
-	void Update ()
-	{
+	void Update (){
+
+		if (Input.GetKey (KeyCode.W))
+			Particles.Emit (1);
+		if (Input.GetKey (KeyCode.A))
+			Particles.Emit (1);
+		if (Input.GetKey (KeyCode.S))
+			Particles.Emit (1);
+		if (Input.GetKey (KeyCode.D))
+			Particles.Emit (1);
+
+
+
 		if (Input.GetKey(KeyCode.LeftArrow))
 		{
 			transform.position += Vector3.left * speed * Time.deltaTime;
@@ -34,10 +46,11 @@ public class CompletePlayerController : MonoBehaviour {
 			transform.position += Vector3.down * speed * Time.deltaTime;
 		}
 	
-		Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-		Vector3 dir = Input.mousePosition - pos;
-		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
-		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+	//Face Mouse
+		//Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
+		//Vector3 dir = Input.mousePosition - pos;
+		//float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+		//transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 	
 	}
 
