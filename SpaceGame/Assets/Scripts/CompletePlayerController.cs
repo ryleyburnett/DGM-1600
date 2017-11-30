@@ -18,39 +18,40 @@ public class CompletePlayerController : MonoBehaviour {
 	//FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
 	void Update (){
 
-		if (Input.GetKey (KeyCode.W))
+		if (Input.GetKey (KeyCode.Space))
 			Particles.Emit (1);
-		if (Input.GetKey (KeyCode.A))
-			Particles.Emit (1);
-		if (Input.GetKey (KeyCode.S))
-			Particles.Emit (1);
-		if (Input.GetKey (KeyCode.D))
-			Particles.Emit (1);
+		//if (Input.GetKey (KeyCode.A))
+			//Particles.Emit (1);
+		//if (Input.GetKey (KeyCode.S))
+			//Particles.Emit (1);
+		//if (Input.GetKey (KeyCode.D))
+			//Particles.Emit (1);
 
 
-
-		if (Input.GetKey(KeyCode.LeftArrow))
-		{
-			transform.position += Vector3.left * speed * Time.deltaTime;
-		}
-		if (Input.GetKey(KeyCode.RightArrow))
-		{
-			transform.position += Vector3.right * speed * Time.deltaTime;
-		}
-		if (Input.GetKey(KeyCode.UpArrow))
-		{
-			transform.position += Vector3.up * speed * Time.deltaTime;
-		}
-		if (Input.GetKey(KeyCode.DownArrow))
-		{
-			transform.position += Vector3.down * speed * Time.deltaTime;
-		}
+	
+	
+		//if (Input.GetKey(KeyCode.LeftArrow))
+		//{
+		//	transform.position += Vector3.left * speed * Time.deltaTime;
+		//}
+		//if (Input.GetKey(KeyCode.RightArrow))
+		//{
+		//	transform.position += Vector3.right * speed * Time.deltaTime;
+		//}
+		//if (Input.GetKey(KeyCode.UpArrow))
+		//{
+		//	transform.position += Vector3.up * speed * Time.deltaTime;
+		//}
+		//if (Input.GetKey(KeyCode.DownArrow))
+		//{
+		//	transform.position += Vector3.down * speed * Time.deltaTime;
+		//}
 	
 	//Face Mouse
-		//Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-		//Vector3 dir = Input.mousePosition - pos;
-		//float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
-		//transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+		Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
+		Vector3 dir = Input.mousePosition - pos;
+		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 	
 	}
 

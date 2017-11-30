@@ -7,6 +7,8 @@ public class health : MonoBehaviour
 {
 
 	public int myHealth;
+	public GameObject explosionEffect;
+	public GameObject[] hearts;
 	public Sprite[] picture;
 	private int count = 0;
 	private LevelManager levelManager;
@@ -14,6 +16,8 @@ public class health : MonoBehaviour
 	void Start(){
 		levelManager = FindObjectOfType<LevelManager> ();
 	}
+
+	
 
 	void OnCollisionEnter2D (Collision2D myCollider) {
 
