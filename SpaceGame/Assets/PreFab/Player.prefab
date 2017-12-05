@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 114246154380577672}
   - component: {fileID: 114635822589784644}
   - component: {fileID: 60008734816341264}
+  - component: {fileID: 114961254280532254}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -168,6 +169,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   Particles: {fileID: 0}
+--- !u!114 &114961254280532254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1379749108766546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e92a5a46c7c54b7baccdc4b0eda818a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myHealth: 0
+  explosionEffect: {fileID: 0}
+  hearts: []
+  picture: []
+  scoreboard: {fileID: 0}
 --- !u!212 &212640030806495162
 SpriteRenderer:
   m_ObjectHideFlags: 1

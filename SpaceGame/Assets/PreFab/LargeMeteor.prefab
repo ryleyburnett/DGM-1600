@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50790192847722236}
   - component: {fileID: 114525450487477706}
   - component: {fileID: 60276471493694798}
+  - component: {fileID: 114961462657213236}
   m_Layer: 0
   m_Name: LargeMeteor
   m_TagString: Untagged
@@ -156,6 +157,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingSpin: 0.5
+--- !u!114 &114961462657213236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433732761510484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e92a5a46c7c54b7baccdc4b0eda818a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myHealth: 3
+  explosionEffect: {fileID: 1560574589099110, guid: d043cc66ae5a342688609881c28ba8ca,
+    type: 2}
+  explosionEffect2: {fileID: 1735682399640898, guid: 96dd110c093aa4a479fedd7a18e00920,
+    type: 2}
+  hearts: []
+  picture: []
+  scoreboard: {fileID: 0}
 --- !u!212 &212353900326902404
 SpriteRenderer:
   m_ObjectHideFlags: 1

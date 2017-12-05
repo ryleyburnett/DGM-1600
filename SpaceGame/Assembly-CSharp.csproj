@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CompletePlayerController.cs" />
+     <Compile Include="Assets\Scripts\destroyEX.cs" />
      <Compile Include="Assets\Scripts\EnemyAi.cs" />
      <Compile Include="Assets\Scripts\Example.cs" />
      <Compile Include="Assets\Scripts\health.cs" />

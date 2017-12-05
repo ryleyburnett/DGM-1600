@@ -8,11 +8,15 @@ public class CompletePlayerController : MonoBehaviour {
 	private Rigidbody2D rb2d;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
 	public ParticleSystem Particles;
 
+
 	// Use this for initialization
 	void Start()
 	{
 		//Get and store a reference to the Rigidbody2D component so that we can access it.
 		rb2d = GetComponent<Rigidbody2D> ();
+		
+		//print ( GetComponent<Health>().GetHealth() );
+		
 	}
 
 	//FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
@@ -20,32 +24,7 @@ public class CompletePlayerController : MonoBehaviour {
 
 		if (Input.GetKey (KeyCode.Space))
 			Particles.Emit (1);
-		//if (Input.GetKey (KeyCode.A))
-			//Particles.Emit (1);
-		//if (Input.GetKey (KeyCode.S))
-			//Particles.Emit (1);
-		//if (Input.GetKey (KeyCode.D))
-			//Particles.Emit (1);
-
-
-	
-	
-		//if (Input.GetKey(KeyCode.LeftArrow))
-		//{
-		//	transform.position += Vector3.left * speed * Time.deltaTime;
-		//}
-		//if (Input.GetKey(KeyCode.RightArrow))
-		//{
-		//	transform.position += Vector3.right * speed * Time.deltaTime;
-		//}
-		//if (Input.GetKey(KeyCode.UpArrow))
-		//{
-		//	transform.position += Vector3.up * speed * Time.deltaTime;
-		//}
-		//if (Input.GetKey(KeyCode.DownArrow))
-		//{
-		//	transform.position += Vector3.down * speed * Time.deltaTime;
-		//}
+		
 	
 	//Face Mouse
 		Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
