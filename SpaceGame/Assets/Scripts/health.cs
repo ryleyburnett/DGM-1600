@@ -18,38 +18,38 @@ public class health : MonoBehaviour
 
 	void Start(){
 		levelManager = FindObjectOfType<LevelManager> ();
+	
+	
 	}
 
 	
 
 	void OnCollisionEnter2D (Collision2D myCollider) {
 Instantiate(explosionEffect2, myCollider.transform.position, Quaternion.identity);
-		//take away health
+			//take away health
 
-		myHealth--;
+			myHealth--;
 
-		//if health is < 0 destroy brick
 
 		if (myHealth <= 0) {
-			//LevelManager.brickCount--;
-			//levelManager.CheckBrickCount ();
 			Destroy (this.gameObject);
 			Instantiate(explosionEffect, gameObject.transform.position, Quaternion.identity);
+			
+			//if (!Player ()){
+			//IncrementScore();
+			//}
 		}
 
 	}
 	
 	void OnTriggerEnter2D (Collider2D myCollider) {
 Instantiate(explosionEffect2, myCollider.transform.position, Quaternion.identity);
-		//take away health
+			//take away health
 
-		myHealth--;
+			myHealth--;
 
-		//if health is < 0 destroy brick
-
+		
 		if (myHealth <= 0) {
-			//LevelManager.brickCount--;
-			//levelManager.CheckBrickCount ();
 			Destroy (this.gameObject);
 			Instantiate(explosionEffect, gameObject.transform.position, Quaternion.identity);
 		}
@@ -60,6 +60,7 @@ Instantiate(explosionEffect2, myCollider.transform.position, Quaternion.identity
 	
 	
 	private void IncrementScore(){
+	
 	scoreboard.text += 10;
 }
 

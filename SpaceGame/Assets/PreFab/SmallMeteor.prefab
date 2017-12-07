@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114501601041311272}
   - component: {fileID: 60488772322021544}
   - component: {fileID: 114443567830342160}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SmallMeteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,6 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingSpin: 0.5
+  thrust: 10
+  rb2D: {fileID: 50754347639118826}
+  player: {fileID: 1379749108766546, guid: 9b54653a9ae0549d194524e66dffff55, type: 2}
 --- !u!212 &212604874214610104
 SpriteRenderer:
   m_ObjectHideFlags: 1

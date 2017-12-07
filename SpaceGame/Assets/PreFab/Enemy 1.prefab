@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 60971591995078740}
   - component: {fileID: 114844770013225296}
   - component: {fileID: 114148841578314112}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,6 +123,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0}
   rb2D: {fileID: 50662680202719906}
   thrust: 1
+  followObj: {fileID: 1379749108766546, guid: 9b54653a9ae0549d194524e66dffff55, type: 2}
 --- !u!114 &114844770013225296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,7 +138,8 @@ MonoBehaviour:
   myHealth: 1
   explosionEffect: {fileID: 1560574589099110, guid: d043cc66ae5a342688609881c28ba8ca,
     type: 2}
-  explosionEffect2: {fileID: 0}
+  explosionEffect2: {fileID: 1735682399640898, guid: 96dd110c093aa4a479fedd7a18e00920,
+    type: 2}
   hearts: []
   picture: []
   scoreboard: {fileID: 0}

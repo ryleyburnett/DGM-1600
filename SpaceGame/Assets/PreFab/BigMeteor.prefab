@@ -116,6 +116,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingSpin: 0.5
+  thrust: 10
+  rb2D: {fileID: 50718664543266418}
+  player: {fileID: 1379749108766546, guid: 9b54653a9ae0549d194524e66dffff55, type: 2}
 --- !u!114 &114498436594112382
 MonoBehaviour:
   m_ObjectHideFlags: 1
