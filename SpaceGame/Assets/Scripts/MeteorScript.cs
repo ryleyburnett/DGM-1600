@@ -9,6 +9,7 @@ public class MeteorScript : MonoBehaviour {
 	public Rigidbody2D rb2D;
 	public GameObject player;
 	
+	
 
 
 	// Use this for initialization

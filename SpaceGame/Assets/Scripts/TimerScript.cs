@@ -6,7 +6,7 @@ public class TimerScript : MonoBehaviour {
 
 	public GameObject spawn;
 	public float timer;
-	private float timerSave;
+	public float timerSave;
 	
 	// Use this for initialization
 	void Start () {
@@ -17,10 +17,10 @@ public class TimerScript : MonoBehaviour {
 	void Update () {
 		timer -= Time.deltaTime;
 		if (timer <= 0){
-			timer =timerSave;
+			timer = timerSave;
 		}
 		if (timer == 10){
-			print ("Yo");
+			print ("yo");
 		}
 	}
 	

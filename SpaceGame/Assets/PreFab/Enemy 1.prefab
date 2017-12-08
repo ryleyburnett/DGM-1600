@@ -119,11 +119,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: []
-  target: {fileID: 4917856864131754, guid: 9b54653a9ae0549d194524e66dffff55, type: 2}
   velocity: {x: 0, y: 0}
   rb2D: {fileID: 50662680202719906}
   thrust: 1
-  followObj: {fileID: 1379749108766546, guid: 9b54653a9ae0549d194524e66dffff55, type: 2}
+  followObj: {fileID: 1108095811933798, guid: 9b54653a9ae0549d194524e66dffff55, type: 2}
+  target: {fileID: 4917856864131754, guid: 9b54653a9ae0549d194524e66dffff55, type: 2}
+  speed: 1
 --- !u!114 &114844770013225296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e92a5a46c7c54b7baccdc4b0eda818a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myHealth: 1
+  myHealth: 2
   explosionEffect: {fileID: 1560574589099110, guid: d043cc66ae5a342688609881c28ba8ca,
     type: 2}
   explosionEffect2: {fileID: 1735682399640898, guid: 96dd110c093aa4a479fedd7a18e00920,

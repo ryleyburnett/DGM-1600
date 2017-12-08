@@ -151,7 +151,8 @@ MonoBehaviour:
     type: 2}
   hearts: []
   picture: []
-  scoreboard: {fileID: 0}
+  scoreboard: {fileID: 114362834554297546, guid: f668315db423e42c2907cbc4879fac6e,
+    type: 2}
 --- !u!212 &212353900326902404
 SpriteRenderer:
   m_ObjectHideFlags: 1
