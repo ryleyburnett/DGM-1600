@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 60544785924656818}
   - component: {fileID: 114680772007107882}
   - component: {fileID: 114022810668299394}
+  - component: {fileID: 114285880083090158}
   m_Layer: 10
   m_Name: MetProjectile
   m_TagString: Untagged
@@ -151,6 +152,19 @@ MonoBehaviour:
   speed: 50
   myRandom: 0
   startingSpin: 0.5
+--- !u!114 &114285880083090158
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490527511245374}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa8b42daa69c42b0b8885373d3296e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 30
+  Speed: 0
 --- !u!114 &114680772007107882
 MonoBehaviour:
   m_ObjectHideFlags: 1
