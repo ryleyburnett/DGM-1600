@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 60008734816341264}
   - component: {fileID: 114961254280532254}
   - component: {fileID: 82574425278839536}
+  - component: {fileID: 114947877399462544}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -250,6 +251,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   Particles: {fileID: 0}
+--- !u!114 &114947877399462544
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1379749108766546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78936e68316074945a7aff846a23fdea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fakeHealth: 0
+  explosionEffect: {fileID: 0}
+  explosionEffect2: {fileID: 0}
+  hearts: []
+  picture: []
+  count: 0
+  levelManager: {fileID: 0}
+  scoreboard: {fileID: 0}
+  myLevelManager: {fileID: 0}
 --- !u!114 &114961254280532254
 MonoBehaviour:
   m_ObjectHideFlags: 1
