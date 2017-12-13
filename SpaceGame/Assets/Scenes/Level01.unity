@@ -113,6 +113,25 @@ GameObject:
   m_PrefabParentObject: {fileID: 1514025339634744, guid: a81010fd827f047ca95e1d8479809715,
     type: 2}
   m_PrefabInternal: {fileID: 735863383}
+--- !u!114 &42934919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 42934918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 102c649b7102143999428f089ccac24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myHealth: 3
+  explosionEffect: {fileID: 1560574589099110, guid: d043cc66ae5a342688609881c28ba8ca,
+    type: 2}
+  explosionEffect2: {fileID: 1735682399640898, guid: 96dd110c093aa4a479fedd7a18e00920,
+    type: 2}
+  hearts: []
+  picture: []
+  scoreboard: {fileID: 0}
 --- !u!114 &42934927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,17 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78936e68316074945a7aff846a23fdea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakeHealth: 0
-  explosionEffect: {fileID: 1560574589099110, guid: d043cc66ae5a342688609881c28ba8ca,
-    type: 2}
-  explosionEffect2: {fileID: 1735682399640898, guid: 96dd110c093aa4a479fedd7a18e00920,
-    type: 2}
-  hearts: []
-  picture: []
-  count: 0
-  levelManager: {fileID: 0}
-  scoreboard: {fileID: 0}
-  myLevelManager: {fileID: 0}
 --- !u!1001 &69354986
 Prefab:
   m_ObjectHideFlags: 0
@@ -7231,7 +7239,8 @@ Prefab:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114100033618975422, guid: a81010fd827f047ca95e1d8479809715, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a81010fd827f047ca95e1d8479809715, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &885973722
